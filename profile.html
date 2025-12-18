@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaVid - Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>⚡ NovaVid</h2>
+            </div>
+            <div class="nav-links">
+                <a href="home.html">🏠 Home</a>
+                <a href="upload.html">➕ Upload</a>
+                <a href="profile.html" class="active">👤 Profile</a>
+                <a href="#" id="logoutBtn">🚪 Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <div class="container">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-picture-wrapper">
+                    <img id="profilePicture" src="https://via.placeholder.com/150" alt="Profile">
+                    <label for="profilePictureInput" class="edit-profile-pic">📷</label>
+                    <input type="file" id="profilePictureInput" accept="image/*" style="display: none;">
+                </div>
+                <div class="profile-info">
+                    <h2 id="profileUsername">Username</h2>
+                    <div id="developerBadge" class="developer-badge" style="display: none;">
+                        ⚡ DEVELOPER
+                    </div>
+                    <p id="profileStats">0 Posts | 0 Likes</p>
+                </div>
+            </div>
+
+            <div class="profile-actions">
+                <button id="editUsernameBtn" class="btn-secondary">Edit Username</button>
+                <button id="changePasswordBtn" class="btn-secondary">Tukar Password</button>
+            </div>
+
+            <!-- Admin Panel (hanya untuk developer) -->
+            <div id="adminPanel" class="admin-panel" style="display: none;">
+                <h3>⚡ Developer Panel</h3>
+                <div class="admin-stats">
+                    <p>Total Users Login: <span id="totalUsers">0</span></p>
+                </div>
+                <div class="admin-controls">
+                    <h4>Manage Users</h4>
+                    <div id="usersList" class="users-list"></div>
+                </div>
+            </div>
+
+            <div class="profile-posts">
+                <h3>Postingan Saya</h3>
+                <div id="userPosts" class="user-posts-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Username Modal -->
+    <div id="editUsernameModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Edit Username</h3>
+            <p id="lastChangeInfo" class="info-text"></p>
+            <form id="editUsernameForm">
+                <div class="form-group">
+                    <input type="text" id="newUsername" placeholder="Username baru" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="verifyPassword" placeholder="Password untuk verifikasi" required>
+                </div>
+                <button type="submit" class="btn-primary">Simpan</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Tukar Password</h3>
+            <form id="changePasswordForm">
+                <div class="form-group">
+                    <input type="password" id="currentPassword" placeholder="Password semasa" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="newPassword" placeholder="Password baru" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirmNewPassword" placeholder="Konfirmasi password baru" required>
+                </div>
+                <button type="submit" class="btn-primary">Tukar Password</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="profile.js"></script>
+</body>
+</html>
